@@ -1,4 +1,4 @@
-# Rob-Boss_Painting-Bot
+# Rob Boss Painting Bot Disciple of Bob Ross 
 ### Vincent Pierce, Conrad Kinsey, Hayden Jeanor
 
 ### Mechanical Design
@@ -13,6 +13,8 @@ Side View of robot housing. Housing was designed so that the arm is ~ 5 inches o
 
 
 ### Software Design
-![Animation Drawing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/135c5ec39ab0f2d908295e72dea60f8ef7972f67/func.gif
-)
+![Animation Drawing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/135c5ec39ab0f2d908295e72dea60f8ef7972f67/func.gif)
+
+The heart of the Rob's ability to draw lies in our Newton Raphson algorithm which allows us to convert (x, y) coordinates into (theta1,theta2) coordinates. Once motor coordinates are achieved we can produce animations such as this!  
+
 
