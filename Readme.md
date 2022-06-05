@@ -10,3 +10,9 @@ Top down view of robot arm used for drawing. Mechanical design implemented a the
 ![Housing View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/a82402a915220112e0e8c3c14328565b59842928/IMG_6554.jpg)
 
 Side View of robot housing. Housing was designed so that the arm is ~ 5 inches off canvas it will draw on. Additionally, all electronics (solenoid, STM32, Shoe of Brian and breakout board) including their wiring could be placed out of reach from the rotating arm. 
+
+
+### Software Design
+![Animation Drawing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/135c5ec39ab0f2d908295e72dea60f8ef7972f67/func.gif
+)
+
