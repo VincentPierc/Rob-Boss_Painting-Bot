@@ -23,4 +23,6 @@ This conversion or mapping or coordinate systems is considered kinematics, and d
 
 ![Animated Draw](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ee3497bf4c97057412c553574a73d7027e8e55/cross.gif)
 
+Above is the computer animation of Rob drawing a cross, below is a linke to a video of Rob actually drawing. The video had to be cut short in order to be uploaded to github. 
+
 ![Rob Drawing](IMG_6560.MOV)
