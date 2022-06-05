@@ -25,4 +25,4 @@ This conversion or mapping or coordinate systems is considered kinematics, and d
 
 Above is the computer animation of Rob drawing a cross, below is a linke to a video of Rob actually drawing. The video had to be cut short in order to be uploaded to github. 
 
-![Rob Drawing](IMG_6560.MOV)
+![Rob Drawing Cross](IMG_6560.MOV)
