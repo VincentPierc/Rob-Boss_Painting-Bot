@@ -23,4 +23,4 @@ This conversion or mapping or coordinate systems is considered kinematics, and d
 
 ![Animated Draw](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ee3497bf4c97057412c553574a73d7027e8e55/cross.gif)
 
-![Animated Draw]([https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ee3497bf4c97057412c553574a73d7027e8e55/cross.gif](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ee3497bf4c97057412c553574a73d7027e8e55/IMG_6560.MOV))
+![Rob Drawing]([https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ee3497bf4c97057412c553574a73d7027e8e55/cross.gif](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ee3497bf4c97057412c553574a73d7027e8e55/IMG_6560.MOV))
