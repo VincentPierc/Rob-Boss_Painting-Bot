@@ -23,7 +23,7 @@ Considering all the group memebers of the project are electrical engeers, we des
 
  In order to transfer to the motor torque into arm angle movement, simple elbow pieces were created to directly transfer the movement to the arm. The two armatures, main housing, and the motor elblows were designed in solidworks and 3D printed. The first iteration, shown below, failed because the small motor did not produce enough torque to move the small arm.
 
-![First Iteration](/home/hjeanor/me405/Rob-Boss_Painting-Bot/IMG_4101[7925].jpg)
+![First Iteration](/Rob-Boss_Painting-Bot/IMG_4101[7925].jpg)
 
 #### Redesign
 Upon the realizaion that we could not use the small motor, we redesigned the large arm to use a large motor to drive the small arm mounted above the large motor already driving the large arm. Placing the small arm motor at the should joint reduced the weight towards the end of the arms, it required the use of a driving belt and parametric pullies.
