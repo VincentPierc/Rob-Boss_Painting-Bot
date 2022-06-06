@@ -2,7 +2,7 @@
 #### Contibutors: Vincent Pierce, Conrad Kinsey, Hayden Jeanor
 
 ## Overview
-Rob Boss (disciple of Bob Ross) is a 2 1/2 degree of freedom pen-plotting robot with a twist. This robot is capable of painting whatever digital image(in HPGL format) is uploaded to its hard-drive. The project was created for our ME 405 Mechatronics term project at California Polytechnic State University San Luis Obipso.
+Rob Boss (disciple of Bob Ross) is a 2 1/2 degree of freedom pen-plotting robot with a twist. This robot is capable of painting whatever HPGL file that is uploaded to its hard-drive. The project was created for our ME 405 Mechatronics term project at California Polytechnic State University San Luis Obipso.
 
 With a STM32 Arm Cortex MCU on a Nucleo-64 board as the brains of the robot, we designed a surrounding electro-mechanical system from scratch to give a 3-dimensional structure to the robot. In combination with the software we designed and uploaded on the STM32, the robot arm can paint any image you can draw on illustrating software. The [Mechanical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#mechanical-design) section outlines the mechanical design parameters, struggles, and final outcomes for the project. The same for the software architecture can be found in the [Software Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#software-design) section.
 
@@ -23,7 +23,7 @@ Considering all the group memebers of the project are electrical engeers, we des
 
  In order to transfer to the motor torque into arm angle movement, simple elbow pieces were created to directly transfer the movement to the arm. The two armatures, main housing, and the motor elblows were designed in solidworks and 3D printed. The first iteration, shown below, failed because the small motor did not produce enough torque to move the small arm.
 
-![First Iteration](/Rob-Boss_Painting-Bot/IMG_4101[7925].jpg)
+![First Iteration](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/IMG_4101%5B7925%5D.jpg)
 
 #### Redesign
 Upon the realizaion that we could not use the small motor, we redesigned the large arm to use a large motor to drive the small arm mounted above the large motor already driving the large arm. Placing the small arm motor at the should joint reduced the weight towards the end of the arms, it required the use of a driving belt and parametric pullies.
@@ -31,19 +31,28 @@ Upon the realizaion that we could not use the small motor, we redesigned the lar
 Through the guidance of our fellow classmates who are majoring in mechanical engineering, we did not have to desing my own parametric pullies. Rather, we pulled [customizable parametric pullies](https://www.thingiverse.com/thing:16627) from [Thingiverse](https://www.thingiverse.com/) and edited them on [OpenSCAD](https://openscad.org/) to meet our mechanical design needs. In order to have variable tensioning of the drive belt, the holes that mount the small arm motor are rails. This design idea is based upon the way an alternator fastens in a car can be used to tension that drive belt (with the difference that our drive belt can be hand-tensioned with out the need of a tensioning belt).
 
 ### Final Implementation
+The images below shows the final form of the robot. Many of the parts of the robot were designed to be fastened together using hardware that was found in lab. Another standout design aspect is the reduction of weight in the armatures while maintaing regidity using triangular cutouts.
+
+#### Paintbrush Actuation
+For the half degree of freedom, we chose a lightweight [solenoid actuator](https://www.amazon.com/dp/B07VC5JKYG?psc=1&ref=ppx_yo2ov_dt_b_product_details). This solenoid provides 5N of push/pull force which is plenty to raise and lower a 50 gram paintbrush. The modified paint brush being actuated was threaded into the end of the solenoid plunger.
+
+#### Matching the 2D Kinematics
 ![Armature View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ab612ea1562960c5a3bc2b429fb5e3f99f7837/IMG_6601%20(1).jpg)
 
-Top down view of robot arm used for drawing. Mechanical design implemented a theta-theta rotation about 2 pivot points, which when combined with a solenoid produced 2 1/2 degreegs of freedom.
+Top down view of robot arm used for drawing. Mechanical design implemented a theta-theta rotation about 2 pivot points, which when combined with a solenoid produced 2 1/2 degreegs of freedom. Both arms were desgined so that they would have equivalnet lenghts from piviot point to pivot point and from pivot point to the center of the paint brush. These lenghts were chosen to be 5 inches because a 10 inch radius covers the desired painting area.
 
+#### Main Housing
 ![Housing View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/a82402a915220112e0e8c3c14328565b59842928/IMG_6554.jpg)
 
-Side View of robot housing. Housing was designed so that the arm is ~ 5 inches off canvas it will draw on. Additionally, all electronics (solenoid, STM32, Shoe of Brian and breakout board) including their wiring could be placed out of reach from the rotating arm.
+Side View of robot main housing. The housing was designed so that the arm is ~ 5 inches off canvas it will draw on. Additionally, all electronics (solenoid relay, STM32, Shoe of Brian and breakout board) including their wiring could be securely placed out of reach from the rotating arm.
 
 ### Key Takeaways
 - better motors would been worth it
 - gear reduction
 - dont reienvent the wheel
 
+## Electrical Design
+ In order to provide the 12V needed for the solenoid to acutate, a relay was used to convert a 3.3V signal
 
 ## Software Design
 
