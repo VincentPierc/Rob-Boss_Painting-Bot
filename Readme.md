@@ -2,24 +2,56 @@
 #### Contibutors: Vincent Pierce, Conrad Kinsey, Hayden Jeanor
 
 ## Overview
-Rob Boss (disciple of Bob Ross) is a 2 and a half degree of freedom pen-plotting robot with a twist. This robot is capable of painting whatever digital image(in HPGL format) you give it. The project was created for our ME 405 Mechatronics term project at California Polytechnic State University San Luis Obipso.
+Rob Boss (disciple of Bob Ross) is a 2 1/2 degree of freedom pen-plotting robot with a twist. This robot is capable of painting whatever digital image(in HPGL format) is uploaded to its hard-drive. The project was created for our ME 405 Mechatronics term project at California Polytechnic State University San Luis Obipso.
 
-With a STM32 Arm Cortex MCU on a Nucleo-64 board as the brains of the robot, we designed a surrounding electro-mechanical system from scratch to bring the software running on the STM32 to life. The [Mechanical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#mechanical-design) section outlines the mechanical design parameters, struggles, and final outcomes for the project. The same for the software architecture can be found in the [Software Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#software-design) section.
+With a STM32 Arm Cortex MCU on a Nucleo-64 board as the brains of the robot, we designed a surrounding electro-mechanical system from scratch to give a 3-dimensional structure to the robot. In combination with the software we designed and uploaded on the STM32, the robot arm can paint any image you can draw on illustrating software. The [Mechanical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#mechanical-design) section outlines the mechanical design parameters, struggles, and final outcomes for the project. The same for the software architecture can be found in the [Software Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#software-design) section.
+
+
 
 ## Mechanical Design
+
+### Design Process
+
+Considering all the group memebers of the project are electrical engeers, we desided to go with a rather basic mechanical design which ended up being rather complex after muliple iterations. The mechanical design of the robot was largely based upon two parameters:
+
+1. adhere to the [kinematics](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#kinematics) of the program we were implementing
+    - this required lighter components to be used towards the end of the arm because of the large amount of leverage being produced by the arm being suspended in air
+2. design around the materials we had at our disposal or that we could buy on a college student's budget
+
+#### First Iteration
+ Because our design was based off the traditional "arm" configuration with a "shoulder" and "elbow" joint, we would need a stepper motor driving each joint. In the first iteration of the robot, we chose to use one large stepper motor to drive the shoulder joint and one smaller stepper motor to drive the elbow joint. This iteration had the placement of the smaller motor at the location of the elbow joint, so it required the motor to be lighter. This would later present torque problems in the future.
+
+ In order to transfer to the motor torque into arm angle movement, simple elbow pieces were created to directly transfer the movement to the arm. The two armatures, main housing, and the motor elblows were designed in solidworks and 3D printed. The first iteration, shown below, failed because the small motor did not produce enough torque to move the small arm.
+
+![First Iteration](/home/hjeanor/me405/Rob-Boss_Painting-Bot/IMG_4101[7925].jpg)
+
+#### Redesign
+Upon the realizaion that we could not use the small motor, we redesigned the large arm to use a large motor to drive the small arm mounted above the large motor already driving the large arm. Placing the small arm motor at the should joint reduced the weight towards the end of the arms, it required the use of a driving belt and parametric pullies.
+
+Through the guidance of our fellow classmates who are majoring in mechanical engineering, we did not have to desing my own parametric pullies. Rather, we pulled [customizable parametric pullies](https://www.thingiverse.com/thing:16627) from [Thingiverse](https://www.thingiverse.com/) and edited them on [OpenSCAD](https://openscad.org/) to meet our mechanical design needs. In order to have variable tensioning of the drive belt, the holes that mount the small arm motor are rails. This design idea is based upon the way an alternator fastens in a car can be used to tension that drive belt (with the difference that our drive belt can be hand-tensioned with out the need of a tensioning belt).
+
+### Final Implementation
 ![Armature View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ab612ea1562960c5a3bc2b429fb5e3f99f7837/IMG_6601%20(1).jpg)
 
 Top down view of robot arm used for drawing. Mechanical design implemented a theta-theta rotation about 2 pivot points, which when combined with a solenoid produced 2 1/2 degreegs of freedom.
 
-###
 ![Housing View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/a82402a915220112e0e8c3c14328565b59842928/IMG_6554.jpg)
 
 Side View of robot housing. Housing was designed so that the arm is ~ 5 inches off canvas it will draw on. Additionally, all electronics (solenoid, STM32, Shoe of Brian and breakout board) including their wiring could be placed out of reach from the rotating arm.
+
+### Key Takeaways
+- better motors would been worth it
+- gear reduction
+- dont reienvent the wheel
 
 
 ## Software Design
 
 ### Kinematics
+The requiremnet of the project is to create a robot that draws with two and a half degrees of freedom not using the tradtional cartesian coordinate system. For this project, we impemented a design that has two finite length armatures with variable angles of direction.
+
+
+
 ![Animation Drawing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/135c5ec39ab0f2d908295e72dea60f8ef7972f67/func.gif)
 
 The heart of the Rob's ability to draw lies in our Newton Raphson algorithm which allows us to convert (x, y) coordinates into (theta1,theta2) coordinates. Allowing us to draw images like this flower
