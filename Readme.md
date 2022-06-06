@@ -12,7 +12,7 @@ With a STM32 Arm Cortex MCU on a Nucleo-64 board as the brains of the robot, we 
 
 ### Design Process
 
-Considering all the group memebers of the project are electrical engeers, we desided to go with a rather basic mechanical design which ended up being rather complex after muliple iterations. The mechanical design of the robot was largely based upon two parameters:
+Considering all the group members of the project are electrical engineers, we decided to go with a rather basic mechanical design which ended up being rather complex after muliple iterations. The mechanical design of the robot was largely based upon two parameters:
 
 1. adhere to the [kinematics](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#kinematics) of the program we were implementing
     - this required lighter components to be used towards the end of the arm because of the large amount of leverage being produced by the arm being suspended in air
@@ -26,14 +26,16 @@ Considering all the group memebers of the project are electrical engeers, we des
 ![First Iteration](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/IMG_4101%5B7925%5D.jpg)
 
 #### Redesign
-Upon the realizaion that we could not use the small motor, we redesigned the large arm to use a large motor to drive the small arm mounted above the large motor already driving the large arm. Placing the small arm motor at the should joint reduced the weight towards the end of the arms, it required the use of a driving belt and parametric pullies.
+Upon the realizaion that we could not use the small motor, we redesigned the large arm to use a large motor to drive the small arm mounted above the large motor already driving the large arm. Placing the small arm motor at the shoulder joint reduced the weight towards the end of the arms. However, it required the use of a driving belt and parametric pullies.
 
-Through the guidance of our fellow classmates who are majoring in mechanical engineering, we did not have to desing my own parametric pullies. Rather, we pulled [customizable parametric pullies](https://www.thingiverse.com/thing:16627) from [Thingiverse](https://www.thingiverse.com/) and edited them on [OpenSCAD](https://openscad.org/) to meet our mechanical design needs. In order to have variable tensioning of the drive belt, the holes that mount the small arm motor are rails. This design idea is based upon the way an alternator fastens in a car can be used to tension that drive belt (with the difference that our drive belt can be hand-tensioned with out the need of a tensioning belt).
+
+
+Through the guidance of our fellow classmates who are majoring in mechanical engineering, we did not have to design my own parametric pullies. Rather, we pulled [customizable parametric pullies](https://www.thingiverse.com/thing:16627) from [Thingiverse](https://www.thingiverse.com/) and edited them on [OpenSCAD](https://openscad.org/) to meet our mechanical design needs. In order to have variable tensioning of the drive belt, the holes that mount the small arm motor are rails. This design idea is based upon the way an alternator fastens in a car can be used to tension that drive belt (with the difference that our drive belt can be hand-tensioned with out the need of a tensioning belt).
 
 ### Final Implementation
 The images below shows the final form of the robot. Many of the parts of the robot were designed to be fastened together using hardware that was found in lab. Each of the [parts](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/tree/main/Rob_Boss_Mechanical_Design) were 3D printed and assembled using the fasteners. Another standout design aspect is the reduction of weight in the armatures while maintaing rigidity using triangular cutouts.
 
-![Final Mechancial Implementation]
+![Final Mechanical Implementation]
 
 #### Paintbrush Actuation
 For the half degree of freedom, we chose a lightweight [solenoid actuator](https://www.amazon.com/dp/B07VC5JKYG?psc=1&ref=ppx_yo2ov_dt_b_product_details). This solenoid provides 5N of push/pull force which is plenty to raise and lower a 50 gram paintbrush. The modified paint brush being actuated was threaded into the end of the solenoid plunger.
