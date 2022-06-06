@@ -60,14 +60,20 @@ Starting the project, we originally thought that every aspect of the project had
 Orgininally, both arms were going ot be desinged using only one dimension. However, the larger arm ended up getting a top which allowed for more stability in the small arm elbow piece that now had two contact points rather than one with barings. The small arm as well as the large arm motor elbow ended up not being so rigid because of the lack of a "3rd dimmension."
 
 ## Electrical Design
- In order to provide the 12V needed for the solenoid to acutate, a relay was used to convert a 3.3V signal
+The three actuating devices (motors and solenoid) of the robot are controlled via an electrical system comprising of a central microcontroller, motor-interfacing breakout board, and power system. The overall wiring between the devices are shown below in the projects wiring diagram.
+
+![Wiring Diagram](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Wiring%20Schematic.png)
+
+### Motor Controlling
+The motors are being controlled by the microcontroller sending position signals via SPI over the bus connected between the MCU and the motor-interfacing breakout board. The breakout board houses a [TMC2208](https://www.mouser.com/datasheet/2/256/TMC220x_TMC2224_datasheet_Rev1_09-1879275.pdf) stepper motor driver and [TMC4210](https://www.mouser.com/datasheet/2/256/TMC4210_Datasheet_Rev_1_05-1878621.pdf) microcontroller-motordriver interface for each motor. To simplify the complexity of these chips, they convert motor position to SPI signals readable by the MCU and vice versa.
+
+### Solenoid Actuating
+ In order to provide the power needed for the solenoid to acutate, a relay was used to convert a 3.3V signal from the microcontroller to 12V, 600mA power supply signal.
 
 ## Software Design
 
 ### Kinematics
 The requirement of the project is to create a robot that draws with two and a half degrees of freedom not using the tradtional cartesian coordinate system. For this project, we impemented a design that has two finite length armatures with variable angles of direction.
-
-
 
 ![Animation Drawing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/135c5ec39ab0f2d908295e72dea60f8ef7972f67/func.gif)
 
@@ -82,3 +88,6 @@ This conversion or mapping or coordinate systems is considered kinematics and de
 Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing. The video had to be cut short in order to be uploaded to github.
 
 ![Rob Drawing Cross](IMG_6560.MOV)
+
+
+### Software Architecture
