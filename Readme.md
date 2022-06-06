@@ -31,7 +31,9 @@ Upon the realizaion that we could not use the small motor, we redesigned the lar
 Through the guidance of our fellow classmates who are majoring in mechanical engineering, we did not have to desing my own parametric pullies. Rather, we pulled [customizable parametric pullies](https://www.thingiverse.com/thing:16627) from [Thingiverse](https://www.thingiverse.com/) and edited them on [OpenSCAD](https://openscad.org/) to meet our mechanical design needs. In order to have variable tensioning of the drive belt, the holes that mount the small arm motor are rails. This design idea is based upon the way an alternator fastens in a car can be used to tension that drive belt (with the difference that our drive belt can be hand-tensioned with out the need of a tensioning belt).
 
 ### Final Implementation
-The images below shows the final form of the robot. Many of the parts of the robot were designed to be fastened together using hardware that was found in lab. Another standout design aspect is the reduction of weight in the armatures while maintaing regidity using triangular cutouts.
+The images below shows the final form of the robot. Many of the parts of the robot were designed to be fastened together using hardware that was found in lab. Each of the [parts](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/tree/main/Rob_Boss_Mechanical_Design) were 3D printed and assembled using the fasteners. Another standout design aspect is the reduction of weight in the armatures while maintaing rigidity using triangular cutouts.
+
+![Final Mechancial Implementation]
 
 #### Paintbrush Actuation
 For the half degree of freedom, we chose a lightweight [solenoid actuator](https://www.amazon.com/dp/B07VC5JKYG?psc=1&ref=ppx_yo2ov_dt_b_product_details). This solenoid provides 5N of push/pull force which is plenty to raise and lower a 50 gram paintbrush. The modified paint brush being actuated was threaded into the end of the solenoid plunger.
@@ -39,7 +41,7 @@ For the half degree of freedom, we chose a lightweight [solenoid actuator](https
 #### Matching the 2D Kinematics
 ![Armature View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ab612ea1562960c5a3bc2b429fb5e3f99f7837/IMG_6601%20(1).jpg)
 
-Top down view of robot arm used for drawing. Mechanical design implemented a theta-theta rotation about 2 pivot points, which when combined with a solenoid produced 2 1/2 degreegs of freedom. Both arms were desgined so that they would have equivalnet lenghts from piviot point to pivot point and from pivot point to the center of the paint brush. These lenghts were chosen to be 5 inches because a 10 inch radius covers the desired painting area.
+Top down view of robot arm used for drawing. Mechanical design implemented a theta-theta rotation about 2 pivot points, which when combined with a solenoid produced 2 1/2 degreegs of freedom. To satisfy the calculated kinematics, both arms were desgined so that they would have equivalent lenghts from pivot point to pivot point and from pivot point to the center of the paint brush. These lenghts were chosen to be 5 inches because a 10 inch radius covers the desired painting area.
 
 #### Main Housing
 ![Housing View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/a82402a915220112e0e8c3c14328565b59842928/IMG_6554.jpg)
@@ -47,9 +49,15 @@ Top down view of robot arm used for drawing. Mechanical design implemented a the
 Side View of robot main housing. The housing was designed so that the arm is ~ 5 inches off canvas it will draw on. Additionally, all electronics (solenoid relay, STM32, Shoe of Brian and breakout board) including their wiring could be securely placed out of reach from the rotating arm.
 
 ### Key Takeaways
-- better motors would been worth it
-- gear reduction
-- dont reienvent the wheel
+
+#### Gear Reduction
+Gear reduction from the motor would increased the resolution. The large arm motor ended up having much worse resolution even with microstepping implemented. In hindsight, having the motor drive the arm using another parametric pully system with gear reduction would have resulted in slower painting speed but much better resolution.
+
+#### Don't Reinvent the Wheel
+Starting the project, we originally thought that every aspect of the project had to be orginal and designed ourselves. In reality, trying to design gears in solidworks is unecessary waste of time when some else on the internet has already done so and published their work for free. Rather, our time is more well spend desiging our own innovations.
+
+#### Add a Third Dimension
+Orgininally, both arms were going ot be desinged using only one dimension. However, the larger arm ended up getting a top which allowed for more stability in the small arm elbow piece that now had two contact points rather than one with barings. The small arm as well as the large arm motor elbow ended up not being so rigid because of the lack of a "3rd dimmension."
 
 ## Electrical Design
  In order to provide the 12V needed for the solenoid to acutate, a relay was used to convert a 3.3V signal
@@ -57,7 +65,7 @@ Side View of robot main housing. The housing was designed so that the arm is ~ 5
 ## Software Design
 
 ### Kinematics
-The requiremnet of the project is to create a robot that draws with two and a half degrees of freedom not using the tradtional cartesian coordinate system. For this project, we impemented a design that has two finite length armatures with variable angles of direction.
+The requirement of the project is to create a robot that draws with two and a half degrees of freedom not using the tradtional cartesian coordinate system. For this project, we impemented a design that has two finite length armatures with variable angles of direction.
 
 
 
