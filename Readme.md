@@ -62,7 +62,7 @@ Starting the project, we originally thought that every aspect of the project had
 Orgininally, both arms were going ot be desinged using only one dimension. However, the larger arm ended up getting a top which allowed for more stability in the small arm elbow piece that now had two contact points rather than one with barings. The small arm as well as the large arm motor elbow ended up not being so rigid because of the lack of a "3rd dimmension."
 
 ## Electrical Design
-The three actuating devices (motors and solenoid) of the robot are controlled via an electrical system comprising of a central microcontroller, motor-interfacing breakout board, and power system. The overall wiring between the devices are shown below.
+The three actuating devices (motors and solenoid) of the robot are controlled via an electrical system comprising of a central microcontroller, motor-interfacing breakout board, and power supply. The overall wiring between the devices are shown below.
 
 ![Wiring Diagram](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Wiring%20Schematic.png)
 
