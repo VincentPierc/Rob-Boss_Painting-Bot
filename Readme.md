@@ -28,14 +28,14 @@ Considering all the group members of the project are electrical engineers, we de
 #### Redesign
 Upon the realizaion that we could not use the small motor, we redesigned the large arm to use a large motor to drive the small arm mounted above the large motor already driving the large arm. Placing the small arm motor at the shoulder joint reduced the weight towards the end of the arms. However, it required the use of a driving belt and parametric pullies.
 
-
+![Parametric Pully System](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Parametric%20pullies.jpg)
 
 Through the guidance of our fellow classmates who are majoring in mechanical engineering, we did not have to design my own parametric pullies. Rather, we pulled [customizable parametric pullies](https://www.thingiverse.com/thing:16627) from [Thingiverse](https://www.thingiverse.com/) and edited them on [OpenSCAD](https://openscad.org/) to meet our mechanical design needs. In order to have variable tensioning of the drive belt, the holes that mount the small arm motor are rails. This design idea is based upon the way an alternator fastens in a car can be used to tension that drive belt (with the difference that our drive belt can be hand-tensioned with out the need of a tensioning belt).
 
 ### Final Implementation
 The images below shows the final form of the robot. Many of the parts of the robot were designed to be fastened together using hardware that was found in lab. Each of the [parts](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/tree/main/Rob_Boss_Mechanical_Design) were 3D printed and assembled using the fasteners. Another standout design aspect is the reduction of weight in the armatures while maintaing rigidity using triangular cutouts.
 
-![Final Mechanical Implementation]
+![Final Mechanical Implementation](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Final%20Mechanical%20Implementation.jpg)
 
 #### Paintbrush Actuation
 For the half degree of freedom, we chose a lightweight [solenoid actuator](https://www.amazon.com/dp/B07VC5JKYG?psc=1&ref=ppx_yo2ov_dt_b_product_details). This solenoid provides 5N of push/pull force which is plenty to raise and lower a 50 gram paintbrush. The modified paint brush being actuated was threaded into the end of the solenoid plunger.
@@ -46,7 +46,7 @@ For the half degree of freedom, we chose a lightweight [solenoid actuator](https
 Top down view of robot arm used for drawing. Mechanical design implemented a theta-theta rotation about 2 pivot points, which when combined with a solenoid produced 2 1/2 degreegs of freedom. To satisfy the calculated kinematics, both arms were desgined so that they would have equivalent lenghts from pivot point to pivot point and from pivot point to the center of the paint brush. These lenghts were chosen to be 5 inches because a 10 inch radius covers the desired painting area.
 
 #### Main Housing
-![Housing View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/a82402a915220112e0e8c3c14328565b59842928/IMG_6554.jpg)
+![Housing View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Electrical%20Wiring.jpg)
 
 Side View of robot main housing. The housing was designed so that the arm is ~ 5 inches off canvas it will draw on. Additionally, all electronics (solenoid relay, STM32, Shoe of Brian and breakout board) including their wiring could be securely placed out of reach from the rotating arm.
 
