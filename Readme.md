@@ -60,15 +60,15 @@ Starting the project, we originally thought that every aspect of the project had
 Orgininally, both arms were going ot be desinged using only one dimension. However, the larger arm ended up getting a top which allowed for more stability in the small arm elbow piece that now had two contact points rather than one with barings. The small arm as well as the large arm motor elbow ended up not being so rigid because of the lack of a "3rd dimmension."
 
 ## Electrical Design
-The three actuating devices (motors and solenoid) of the robot are controlled via an electrical system comprising of a central microcontroller, motor-interfacing breakout board, and power system. The overall wiring between the devices are shown below in the projects wiring diagram.
+The three actuating devices (motors and solenoid) of the robot are controlled via an electrical system comprising of a central microcontroller, motor-interfacing breakout board, and power system. The overall wiring between the devices are shown below.
 
 ![Wiring Diagram](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Wiring%20Schematic.png)
 
 ### Motor Controlling
-The motors are being controlled by the microcontroller sending position signals via SPI over the bus connected between the MCU and the motor-interfacing breakout board. The breakout board houses a [TMC2208](https://www.mouser.com/datasheet/2/256/TMC220x_TMC2224_datasheet_Rev1_09-1879275.pdf) stepper motor driver and [TMC4210](https://www.mouser.com/datasheet/2/256/TMC4210_Datasheet_Rev_1_05-1878621.pdf) microcontroller-motordriver interface for each motor. To simplify the complexity of these chips, they convert motor position to SPI signals readable by the MCU and vice versa.
+The motors are being controlled by the microcontroller sending position signals via SPI over the bus connected between the MCU and the motor-interfacing breakout board. The breakout board houses a [TMC2208](https://www.mouser.com/datasheet/2/256/TMC220x_TMC2224_datasheet_Rev1_09-1879275.pdf) stepper motor driver and [TMC4210](https://www.mouser.com/datasheet/2/256/TMC4210_Datasheet_Rev_1_05-1878621.pdf) microcontroller-motordriver interface for each motor. To simplify the complexity of these chips, they convert motor position to SPI signals readable by the MCU and vice versa to get real time motor position and send target motor position.
 
 ### Solenoid Actuating
- In order to provide the power needed for the solenoid to acutate, a relay was used to convert a 3.3V signal from the microcontroller to 12V, 600mA power supply signal.
+ In order to provide the power needed for the solenoid to acutate, a [solid state relay](https://www.amazon.com/SSR-100DD-Solid-State-Relay-Module/dp/B07PFDJQLV/ref=asc_df_B07PFDJQLV/?tag=hyprod-20&linkCode=df0&hvadid=344109501737&hvpos=&hvnetw=g&hvrand=4678158795194401447&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9031723&hvtargid=pla-731534345491&psc=1&tag=&ref=&adgrpid=69357499895&hvpone=&hvptwo=&hvadid=344109501737&hvpos=&hvnetw=g&hvrand=4678158795194401447&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9031723&hvtargid=pla-731534345491) was used to convert a 3.3V signal from the microcontroller to 12V, 600mA power supply signal.
 
 ## Software Design
 
