@@ -95,8 +95,8 @@ Even though the robot works in terms of two angles, all the data parsed from the
 
 This conversion, or mapping, of coordinate systems is considered kinematics and deals with how driving actuators (motors) affects end-effector coordinates (pen-plotter position). Newton Raphson allows us to iteratively solve for motor coordinates which produce x, y coordinates closer and closer to our target position.
 
-![Animated Draw](func.gif)
+![Animated Draw](cross.gif)
 
 Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing. The video had to be cut short in order to be uploaded to github.
 
-![Rob Drawing Cross](compress.mp4)
+![Rob Drawing Cross](IMG_6560.MOV)
