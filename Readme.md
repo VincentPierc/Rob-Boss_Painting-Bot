@@ -91,7 +91,7 @@ The requirement of the project is to create a robot that draws with two and a ha
 #### Newton Raphson
 Even though the robot works in terms of two angles, all the data parsed from the input (HPGL) file is in terms of cartesian coordinates. The heart of the Rob's ability to draw lies in the Newton Raphson algorithm which allows us to convert (x, y) coordinates into (theta1, theta2) coordinates. Allowing the robot to draw images like the flower drawn below.
 
-![Animation Drawing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/135c5ec39ab0f2d908295e72dea60f8ef7972f67/func.gif)
+![Animation Drawing](flower.gif)
 
 This conversion, or mapping, of coordinate systems is considered kinematics and deals with how driving actuators (motors) affects end-effector coordinates (pen-plotter position). Newton Raphson allows us to iteratively solve for motor coordinates which produce x, y coordinates closer and closer to our target position.
 
