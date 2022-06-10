@@ -33,6 +33,7 @@
 
 
 
+
 ## Overview
 Rob Boss (disciple of Bob Ross) is a 2 1/2 degree of freedom pen-plotting robot with a twist. This robot is capable of painting whatever HPGL file that is uploaded to its hard-drive. The project was created for our ME 405 Mechatronics term project at California Polytechnic State University San Luis Obispo.
 
@@ -50,7 +51,7 @@ The completed robot is able to draw any HPGL image with color, refill when low o
 Considering all the group members of the project are electrical engineers, we decided to go with a rather basic mechanical design which ended up being rather complex after multiple iterations. The mechanical design of the robot was largely based upon two parameters:
 
 1. adhere to the [kinematics](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#kinematics) of the program we were implementing
-    - this required lighter components to be used towards the end of the arm because of the large amount of leverage being produced by the arm being suspended in air
+	- this required lighter components to be used towards the end of the arm because of the large amount of leverage being produced by the arm being suspended in air
 2. design around the materials we had at our disposal or that we could buy on a college student's budget
 
 #### First Iteration
@@ -154,7 +155,7 @@ This conversion, or mapping, of coordinate systems is considered kinematics and 
 
 ![Animated Draw](cross.gif)
 
-Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing. The video had to be cut short in order to be uploaded to github.
+Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing.
 
 [![Cross Drawing](https://i.ytimg.com/vi/cKq7Di-0tEg/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCD2DSD3XS7qHT91zfgYfK8R_26jA)](https://www.youtube.com/shorts/cKq7Di-0tEg)
 
