@@ -86,7 +86,7 @@ The overarching software archecture uses a cooperative multi-tasking scheduler. 
 ### Computer Code
 For the "Bells and Whistles" of our assignment, we opted to go with a computer software implementation. The code, running simultaneously to the code on the Nucleo, generates various graphs to visualize what Rob is supposed to be doing.  
 
-![code can be found here](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/tree/main/Code)
+![code can be found here](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Code/Computer_Code.py)
 
 #### Live Plotting
 
