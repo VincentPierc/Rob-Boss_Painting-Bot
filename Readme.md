@@ -113,6 +113,6 @@ This conversion, or mapping, of coordinate systems is considered kinematics and 
 
 Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing. The video had to be cut short in order to be uploaded to github.
 
-![Rob Drawing Cross](https://www.youtube.com/watch?v=Ki1ZRTqjX58)
+[Rob Drawing Cross](https://www.youtube.com/watch?v=Ki1ZRTqjX58)
 
 
