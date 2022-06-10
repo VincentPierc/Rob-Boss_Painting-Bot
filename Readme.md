@@ -123,6 +123,8 @@ The live plotting is the first part of the computer code to be run after initial
 #### Gif Generation
 The Gif Generation function runs directly after the Live plotting finishes and mirrors the Live Plotting portion closely. The difference is that it uses a list of the UART and a counter to iterate instead of the two for loops present in the Live Plotting function. The output of this section is an animated gif saved under the name "func.gif".
 
+![Example](func.gif)
+
 #### Theta Timeline
 Once the gif of the plot is generated, a graph showing the values of theta 1 and 2 over the number of UART reads is generated. The graph served to confirm our robot was generating proper values during the testing stages. We left the graphs in as they serve as reassurance that the robot is functioning properly and are a clear indicator the computer code has finished running.
 
@@ -144,4 +146,6 @@ Above is the computer animation of Rob drawing a cross, below is a link to a vid
 
 [![Cross Drawing](https://i.ytimg.com/vi/cKq7Di-0tEg/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCD2DSD3XS7qHT91zfgYfK8R_26jA)](https://www.youtube.com/shorts/cKq7Di-0tEg)
 
-[![Spiral Drawing](https://i.ytimg.com/vi/cKq7Di-0tEg/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCD2DSD3XS7qHT91zfgYfK8R_26jA)](https://youtube.com/shorts/fURTPj2gL18?feature=share)
+
+
+
