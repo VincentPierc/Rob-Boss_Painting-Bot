@@ -112,22 +112,30 @@ The motors are being controlled by the microcontroller sending position signals 
 ### Software Architecture
 The overarching software architecture uses a cooperative multitasking scheduler. Each of the tasks the robot performs was created with the other tasks in consideration. The robot first parses through the file and creates a list with the first element of which being the instruction name and all subsequent elements being the numbers associated with that instruction. The file then runs through the two processing tasks to interpret the instructions, move the robot, and send the data to the computer.
 
+![Main Task Diagram](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/ME405%20Main%20Task%20Diagram.png)
+
 #### Draw Wrapper
 The main task of the assignment is the Draw Wrapper task. While the function is named Draw Wrapper, This is because it calls the draw function. The actual purpose of the task is to iterate through the instruction list and process a single instruction each time it is called. It does so through popping the first value of the instruction list and then calling the draw function on the popped instruction list. It is inside of the draw function that the instruction is processed. If the instruction is an IN instruction, the function will place the initial point of (0,0) into the X_Vals and Y_Vals queues to set the initial location of the motor when it runs. If an IN instruction is called after this, it will be deemed the end of the list and the motors will reset to their fully extended position. If the instruction is SP, the color selected by the SP instruction will be set as the value for the shared variable curcolor. If a PD or PU function is received, the function will first set the pen value to 1 or 0 with 1 being the pen down state and 0 being the pen up state. The function then runs the interpolation function created in Lab 3. All x and y values are then pushed into the X_Vals and Y_Vals queues. When these values are pushed into the queues, the values of the current color, whether this is the end of instruction, and whether this is the end of the file are also pushed to their respective queues. This task runs with a period of 10ms.
+
+![drawFSM](DrawFSM.png)
 
 #### Find Thetas
 When the task is first initialized it generates a list of size 2 that will be used for temporary theta storage. To be more memory efficient, this could have been a float array of size 2. However, the difference between an array of size 2 and a list of size 2 was deemed negligible in this case since the list would be reused in each call. After creating the list, the remaining variables represent the initial guesses for the Newton Raphson function and an initial color value of curcolor. The function then checks the size of the X_Vals queue to see if the Draw Wrapper task has been called. If there are values in the queue, they are read and fed into the Newton Raphson function to find the theta values. Once appropriate data values are found, they are converted to between pi and -pi. This is to prevent the robot from spinning in circles after finding a solution a full rotation off from the robot's current position. The theta, solenoid, EOI(End Of Instruction), and EOF (End Of File) bits are then sent over UART to the computer for the live drawing. Once that is done, the motors are then moved to the new theta positions.
 
+![thetaFSM](FindThetasFSM.png)
+
 ### Computer Code
 For the "Bells and Whistles" of our assignment, we opted to go with a computer software implementation. The code, running simultaneously to the code on the Nucleo, generates various graphs to visualize what Rob is supposed to be doing. As the computer code is all one function named main(), I have split up the portions by generated graphic for ease of reading.
 
-![code can be found here](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Code/Computer_Code.py)
+[Code can be found here](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Code/Computer_Code.py)
 
 #### Live Plotting
 The live plotting is the first part of the computer code to be run after initializing all necessary variables. The function makes use of a double nested while loop. The first loop waits for the EOF bit and sets the input list to be zeros, while the second waits for the EOI bit and sets the list to the incoming values. Each time these values are read from the UART, a graph is generated with all past points and the current point. The graph also has an updated location of the lines representing the robot's arms, with these arms pointing to the latest point. Lines are only drawn between points in the case of both solenoid bits being set high and are drawn using the color input over UART.
 
 #### Gif Generation
 The Gif Generation function runs directly after the Live plotting finishes and mirrors the Live Plotting portion closely. The difference is that it uses a list of the UART and a counter to iterate instead of the two for loops present in the Live Plotting function. The output of this section is an animated gif saved under the name "func.gif".
+
+![Example](func.gif)
 
 #### Theta Timeline
 Once the gif of the plot is generated, a graph showing the values of theta 1 and 2 over the number of UART reads is generated. The graph served to confirm our robot was generating proper values during the testing stages. We left the graphs in as they serve as reassurance that the robot is functioning properly and are a clear indicator the computer code has finished running.
@@ -142,19 +150,13 @@ Even though the robot works in terms of two angles, all the data parsed from the
 
 ![Animation Drawing](flower.gif)
 
-This conversion, or mapping, of coordinate systems is considered kinematics and deals with how driving actuators (motors) affects end-effector coordinates (pen-plotter position). Newton Raphson allows us to iteratively solve for motor coordinates which produce x, y coordinates closer and closer to our target position. Newton Raphson is a root-finding algorithm which produces successively better approximations to the roots (or zeroes) of a real-valued function. The process of finding a root from the tangent of the functions current output iteratively gets us closer to the real root. Below is the math required of newton raphson to solve for motor positions that produce desired (x,y) coordinates for our paintbrush.
-
-![Animation Drawing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/5cff4b0109adddaa6c2f6db69933522408e74fd2/math.jpg)
-
-
-
+This conversion, or mapping, of coordinate systems is considered kinematics and deals with how driving actuators (motors) affects end-effector coordinates (pen-plotter position). Newton Raphson allows us to iteratively solve for motor coordinates which produce x, y coordinates closer and closer to our target position.
 
 ![Animated Draw](cross.gif)
 
-Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing. Upon closer inspection one can see that the actual painting produced by rob is very jagged. This is an artifact of our mechanical design which lacked gear reduction on the larger arm. 
+Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing. The video had to be cut short in order to be uploaded to github.
 
 [![Cross Drawing](https://i.ytimg.com/vi/cKq7Di-0tEg/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCD2DSD3XS7qHT91zfgYfK8R_26jA)](https://www.youtube.com/shorts/cKq7Di-0tEg)
 
-Rob painting a spiral!
 
-[![Spiral Drawing](https://i.ytimg.com/vi/cKq7Di-0tEg/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCD2DSD3XS7qHT91zfgYfK8R_26jA)](https://youtube.com/shorts/fURTPj2gL18?feature=share)
+
