@@ -79,7 +79,9 @@ The overarching software archecture uses a cooperative multi-tasking scheduler. 
 
 #### Get Thetas
 
+
 #### Move Motors
+
 
 ### Computer Code
 For the "Bells and Whistles" of our assignment, we opted to go with a computer software implementation. The code, running simultaneously to the code on the Nucleo, generates various graphs to visualize what Rob is supposed to be doing.  
@@ -88,9 +90,12 @@ For the "Bells and Whistles" of our assignment, we opted to go with a computer s
 
 #### Live Plotting
 
+
 #### Gif Generation
 
+
 #### Theta Timeline
+
 
 ### Kinematics
 The requirement of the project is to create a robot that draws with two and a half degrees of freedom not using the tradtional cartesian coordinate system. For this project, we impemented a design that has two finite length armatures with variable angles of direction.
