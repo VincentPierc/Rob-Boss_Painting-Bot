@@ -37,9 +37,9 @@
 ## Overview
 Rob Boss (disciple of Bob Ross) is a 2 1/2 degree of freedom pen-plotting robot with a twist. This robot is capable of painting whatever HPGL file that is uploaded to its hard-drive. The project was created for our ME 405 Mechatronics term project at California Polytechnic State University San Luis Obispo.
 
-With a STM32 Arm Cortex MCU on a Nucleo-64 board as the brains of the robot, we designed a surrounding electro-mechanical system from scratch to give a 3-dimensional structure to the robot. In combination with the software we designed and uploaded on the STM32, the robot arm can paint any image you can draw on illustrating software. The [Mechanical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#mechanical-design) section outlines the mechanical design parameters, struggles, and final outcomes for the project. The same for the software architecture can be found in the [Software Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#software-design) section.
+With an STM32 Arm Cortex MCU on a Nucleo-64 board as the brains of the robot, we designed a surrounding electro-mechanical system from scratch to give a 3-dimensional structure to the robot. In combination with the software we designed and uploaded on the STM32, the robot arm can paint any image you can draw on illustrating software. Detailed design parameters can be found in the [Mechanical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#mechanical-design), [Software Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#software-design), and [Electrical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#electrical-design) sections.
 
-The completed robot is able to draw any HPGL image with color, refill when low on paint, and plot the image on a computer synchronously. The video below shows Rob Boss’s full capabilities.
+The completed robot is able to synchronously draw any HPGL image with color, refill when low on paint, and plot the image on a computer. The video below shows Rob Boss’s full capabilities.
 
 [![Rob Boss - Painting Robot](https://i.ytimg.com/an_webp/zsSy63GS3jI/mqdefault_6s.webp?du=3000&sqp=CNquipUG&rs=AOn4CLAiT6MDIVFPV8zxqhF1mrCtTVwHCQ)](https://www.youtube.com/watch?v=zsSy63GS3jI)
 
@@ -48,14 +48,14 @@ The completed robot is able to draw any HPGL image with color, refill when low o
 
 ### Design Process
 
-Considering all the group members of the project are electrical engineers, we decided to go with a rather basic mechanical design which ended up being rather complex after multiple iterations. The mechanical design of the robot was largely based upon two parameters:
+Considering all group members of the project are electrical engineers, we decided to go with a rather basic mechanical design which ended up being rather complex after multiple iterations. The mechanical design of the robot was largely based upon two parameters:
 
 1. adhere to the [kinematics](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#kinematics) of the program we were implementing
-	- this required lighter components to be used towards the end of the arm because of the large amount of leverage being produced by the arm being suspended in air
+	- this required lighter components to be used towards the end of the arm because of the large amount of leverage being produced by the arm being in air
 2. design around the materials we had at our disposal or that we could buy on a college student's budget
 
 #### First Iteration
- Because our design was based on the traditional "arm" configuration with a "shoulder" and "elbow" joint, we would need a stepper motor driving each joint. In the first iteration of the robot, we chose to use one large stepper motor to drive the shoulder joint and one smaller stepper motor to drive the elbow joint. This iteration had the placement of the smaller motor at the location of the elbow joint, so it required the motor to be lighter. This would later present torque problems in the future.
+ Because our design was based on the traditional "arm" configuration with a "shoulder" and "elbow" joint, we would need a stepper motor driving each joint. In the first iteration of the robot, we chose to use one large stepper motor to drive the shoulder joint and one smaller stepper motor to drive the elbow joint. This iteration had the placement of the smaller motor at the location of the elbow joint, so it required the motor to be lighter. This ended up presenting torque problems in the future.
 
  In order to transfer the motor torque into arm angle movement, simple elbow pieces were created to directly transfer the movement to the arm. The two armatures, main housing, and the motor elbows were designed in solidworks and 3D printed. The first iteration, shown below, failed because the small motor did not produce enough torque to move the small arm.
 
@@ -66,7 +66,7 @@ Upon the realization that we could not use the small motor, we redesigned the la
 
 ![Parametric Pulley System](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Parametric%20pullies.jpg)
 
-Through the guidance of our fellow classmates who are majoring in mechanical engineering, we did not have to design my own parametric pullies. Rather, we pulled [customizable parametric pullies](https://www.thingiverse.com/thing:16627) from [Thingiverse](https://www.thingiverse.com/) and edited them on [OpenSCAD](https://openscad.org/) to meet our mechanical design needs. In order to have variable tensioning of the drive belt, the holes that mount the small arm motor are rails. This design idea is based upon the way an alternator fastens in a car can be used to tension that drive belt (with the difference that our drive belt can be hand-tensioned without the need of a tensioning belt).
+Through the guidance of our fellow classmates who are majoring in mechanical engineering, we did not have to design our own parametric pullies. Rather, we pulled [customizable parametric pullies](https://www.thingiverse.com/thing:16627) from [Thingiverse](https://www.thingiverse.com/) and edited them on [OpenSCAD](https://openscad.org/) to meet our mechanical design needs. In order to have variable tensioning of the drive belt, the holes that mount the small arm motor are elongated.
 
 ### Final Implementation
 The images below show the final form of the robot. Many of the parts of the robot were designed to be fastened together using hardware that was found in the lab. Each of the [parts](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/tree/main/Rob_Boss_Mechanical_Design) were 3D printed and assembled using the fasteners. Another standout design aspect is the reduction of weight in the armatures while maintaining rigidity using triangular cutouts.
@@ -79,7 +79,7 @@ For the half degree of freedom, we chose a lightweight [solenoid actuator](https
 #### Matching the 2D Kinematics
 ![Armature View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/88ab612ea1562960c5a3bc2b429fb5e3f99f7837/IMG_6601%20(1).jpg)
 
-Top down view of robot arm used for drawing. Mechanical design implemented a theta-theta rotation about 2 pivot points, which when combined with a solenoid produced 2 1/2 degrees of freedom. To satisfy the calculated kinematics, both arms were designed so that they would have equivalent lengths from pivot point to pivot point and from pivot point to the center of the paint brush. These lengths were chosen to be 5 inches because a 10 inch radius covers the desired painting area.
+Top down view of robot arm used for drawing. Mechanical design implemented a theta-theta rotation about 2 pivot points which, when combined with a solenoid, produced 2 1/2 degrees of freedom. To satisfy the calculated kinematics, both arms were designed so that they would have equivalent lengths from pivot point to pivot point and from pivot point to the center of the paint brush. These lengths were chosen to be 5 inches each because a 10 inch radius covers the desired painting area.
 
 #### Main Housing
 ![Housing View](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Electrical%20Wiring.jpg)
@@ -92,10 +92,10 @@ Side View of robot main housing. The housing was designed so that the arm is ~ 5
 Gear reduction from the motor would increase the resolution. The large arm motor ended up having much worse resolution even with microstepping implemented. In hindsight, having the motor drive the arm using another parametric pulley system with gear reduction would have resulted in slower painting speed but much better resolution.
 
 #### Don't Reinvent the Wheel
-Starting the project, we originally thought that every aspect of the project had to be original and designed ourselves. In reality, trying to design gears in solidworks is an unnecessary waste of time when some else on the internet has already done so and published their work for free. Rather, our time is more well spent designing our own innovations.
+Starting the project, we originally thought that every aspect of the project had to be original and designed ourselves. In reality, trying to design gears in solidworks is an unnecessary waste of time when someone else on the internet has already done so and published their work for free. Rather, our time is more well spent designing our own innovations.
 
 #### Add a Third Dimension
-Originally, both arms were going to be designed using only one dimension. However, the larger arm ended up getting a top which allowed for more stability in the small arm elbow piece that now had two contact points rather than one with barings. The small arm as well as the large arm motor elbow ended up not being so rigid because of the lack of a "3rd dimension."
+Originally, both arms were going to be designed using only one dimension. However, the larger arm ended up getting a top which allowed for more stability in the small arm elbow piece that now had two contact points with barings rather than one. The small arm as well as the large arm motor elbow ended up not being so rigid because of the lack of a "3rd dimension."
 
 ## Electrical Design
 The three actuating devices (motors and solenoid) of the robot are controlled via an electrical system consisting of a central microcontroller, motor-interfacing breakout board, and power system. The overall wiring between the devices are shown below.
@@ -116,7 +116,7 @@ The overarching software architecture uses a cooperative multitasking scheduler.
 ![Main Task Diagram](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/ME405%20Main%20Task%20Diagram.png)
 
 #### Draw Wrapper
-The main task of the assignment is the Draw Wrapper task. While the function is named Draw Wrapper, This is because it calls the draw function. The actual purpose of the task is to iterate through the instruction list and process a single instruction each time it is called. It does so through popping the first value of the instruction list and then calling the draw function on the popped instruction list. It is inside of the draw function that the instruction is processed. If the instruction is an IN instruction, the function will place the initial point of (0,0) into the X_Vals and Y_Vals queues to set the initial location of the motor when it runs. If an IN instruction is called after this, it will be deemed the end of the list and the motors will reset to their fully extended position. If the instruction is SP, the color selected by the SP instruction will be set as the value for the shared variable curcolor. If a PD or PU function is received, the function will first set the pen value to 1 or 0 with 1 being the pen down state and 0 being the pen up state. The function then runs the interpolation function created in Lab 3. All x and y values are then pushed into the X_Vals and Y_Vals queues. When these values are pushed into the queues, the values of the current color, whether this is the end of instruction, and whether this is the end of the file are also pushed to their respective queues. This task runs with a period of 10ms.
+The main task of the assignment is the Draw Wrapper task. The function is named Draw Wrapper because it calls the draw function. The actual purpose of the task is to iterate through the instruction list and process a single instruction each time it is called. It does so through popping the first value of the instruction list then calling the draw function on the popped instruction list. It is inside of the draw function that the instruction is processed. If the instruction is an IN instruction, the function will place the initial point of (0,0) into the X_Vals and Y_Vals queues to set the initial location of the motor when it runs. If an IN instruction is called after this, it will be deemed the end of the list and the motors will reset to their fully extended position. If the instruction is SP, the color selected by the SP instruction will be set as the value for the shared variable curcolor. If a PD or PU function is received, the function will first set the pen value to 1 or 0 with 1 being the pen down state and 0 being the pen up state. The function then runs the interpolation function created in Lab 3. All x and y values are then pushed into the X_Vals and Y_Vals queues. When these values are pushed into the queues, the values of the current color, whether this is the end of instruction and whether this is the end of the file, are also pushed to their respective queues. This task runs with a period of 10ms.
 
 ![drawFSM](DrawFSM.png)
 
@@ -126,7 +126,7 @@ When the task is first initialized it generates a list of size 2 that will be us
 ![thetaFSM](FindThetasFSM.png)
 
 ### Computer Code
-For the "Bells and Whistles" of our assignment, we opted to go with a computer software implementation. The code, running simultaneously to the code on the Nucleo, generates various graphs to visualize what Rob is supposed to be doing. As the computer code is all one function named main(), I have split up the portions by generated graphic for ease of reading.
+For the "Bells and Whistles" of our assignment, we opted to go with a computer software implementation. The code, running simultaneously to the code on the Nucleo, generates various graphs to visualize what Rob is supposed to be doing. As the computer code is all one function named main(), we have split up the portions by generated graphic for ease of reading.
 
 [Code can be found here](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Code/Computer_Code.py)
 
@@ -155,9 +155,6 @@ This conversion, or mapping, of coordinate systems is considered kinematics and 
 
 ![Animated Draw](cross.gif)
 
-Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing.
+Above is the computer animation of Rob drawing a cross, below is a link to the video of Rob actually drawing.
 
 [![Cross Drawing](https://i.ytimg.com/vi/cKq7Di-0tEg/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCD2DSD3XS7qHT91zfgYfK8R_26jA)](https://www.youtube.com/shorts/cKq7Di-0tEg)
-
-
-
