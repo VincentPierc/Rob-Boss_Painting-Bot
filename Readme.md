@@ -136,7 +136,10 @@ Even though the robot works in terms of two angles, all the data parsed from the
 
 ![Animation Drawing](flower.gif)
 
-This conversion, or mapping, of coordinate systems is considered kinematics and deals with how driving actuators (motors) affects end-effector coordinates (pen-plotter position). Newton Raphson allows us to iteratively solve for motor coordinates which produce x, y coordinates closer and closer to our target position. Newton Raphson is a root-finding algorithm which produces successively better approximations to the roots (or zeroes) of a real-valued function. The process of finding a root from the tangent of the functions current output iteratively gets us closer to the real root.
+This conversion, or mapping, of coordinate systems is considered kinematics and deals with how driving actuators (motors) affects end-effector coordinates (pen-plotter position). Newton Raphson allows us to iteratively solve for motor coordinates which produce x, y coordinates closer and closer to our target position. Newton Raphson is a root-finding algorithm which produces successively better approximations to the roots (or zeroes) of a real-valued function. The process of finding a root from the tangent of the functions current output iteratively gets us closer to the real root. Below is the math required of newton raphson to solve for motor positions that produce desired (x,y) coordinates for our paintbrush.
+
+![Animation Drawing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/5cff4b0109adddaa6c2f6db69933522408e74fd2/math.jpg)
+
 
 
 
