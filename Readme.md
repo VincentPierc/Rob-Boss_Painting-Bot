@@ -1,28 +1,28 @@
 # Rob Boss - Painting Robot (Disciple of Bob Ross)
 #### Contributors: Vincent Pierce, Conrad Kinsey, Hayden Jeanor
 
-##Contents
+## Contents
 
-[Overveiw](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#overview)
-[Mechanical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#mechanical-design)
-[Design Process](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#design-process)
-[First Iteration](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#first-iteration)
-[Redesign](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#redesign)
-[Final Implementation](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#final-implementation)
-[Paintbrush Actuation](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#paintbrush-actuation)
-[Matching the 2D Kinematics](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#matching-the-2d-kinematics)
-[Main Housing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#main-housing)
-[Key Takeaways](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#key-takeaways)
-[Gear Reduction](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#gear-reduction)
-[Don’t Reinvent the Wheel](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#dont-reinvent-the-wheel}
-[Add a Third Dimension](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#add-a-third-dimension)
-[Electrical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#electrical-design)
-[Motor Controlling](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#motor-controlling)
-[Solenoid Actuating](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#solenoid-actuating)
-[Software Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#software-architecture)
-[Software Architecture](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#software-architecture)
-[Kinematics](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#kinematics)
-[Newton Raphson](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#newton-raphson)
+- [Overveiw](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#overview)
+- [Mechanical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#mechanical-design)
+    - [Design Process](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#design-process)
+        - [First Iteration](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#first-iteration)
+        - [Redesign](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#redesign)
+    - [Final Implementation](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#final-implementation)
+        - [Paintbrush Actuation](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#paintbrush-actuation)
+        - [Matching the 2D Kinematics](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#matching-the-2d-kinematics)
+        - [Main Housing](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#main-housing)
+    - [Key Takeaways](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#key-takeaways)
+        - [Gear Reduction](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#gear-reduction)
+        - [Don’t Reinvent the Wheel](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#dont-reinvent-the-wheel}
+        - [Add a Third Dimension](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#add-a-third-dimension)
+- [Electrical Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#electrical-design)
+    - [Motor Controlling](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#motor-controlling)
+    - [Solenoid Actuating](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#solenoid-actuating)
+- [Software Design](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#software-architecture)
+    - [Software Architecture](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#software-architecture)
+    - [Kinematics](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#kinematics)
+        - [Newton Raphson](https://github.com/VincentPierc/Rob-Boss_Painting-Bot#newton-raphson)
 
 
 
