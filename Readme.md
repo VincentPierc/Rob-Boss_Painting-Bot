@@ -143,3 +143,5 @@ This conversion, or mapping, of coordinate systems is considered kinematics and 
 Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing. The video had to be cut short in order to be uploaded to github.
 
 [![Cross Drawing](https://i.ytimg.com/vi/cKq7Di-0tEg/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCD2DSD3XS7qHT91zfgYfK8R_26jA)](https://www.youtube.com/shorts/cKq7Di-0tEg)
+
+[![Spiral Drawing](https://i.ytimg.com/vi/cKq7Di-0tEg/hq720_2.jpg?sqp=-oaymwEdCI4CEOADSFXyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCD2DSD3XS7qHT91zfgYfK8R_26jA)](https://youtube.com/shorts/fURTPj2gL18?feature=share)
