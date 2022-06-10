@@ -84,7 +84,7 @@ The overarching software archecture uses a cooperative multi-tasking scheduler. 
 
 
 ### Computer Code
-For the "Bells and Whistles" of our assignment, we opted to go with a computer software implementation. The code, running simultaneously to the code on the Nucleo, generates various graphs to visualize what Rob is supposed to be doing.  
+For the "Bells and Whistles" of our assignment, we opted to go with a computer software implementation. The code, running simultaneously to the code on the Nucleo, generates various graphs to visualize what Rob is supposed to be doing.
 
 ![code can be found here](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Code/Computer_Code.py)
 
@@ -113,4 +113,6 @@ This conversion, or mapping, of coordinate systems is considered kinematics and 
 
 Above is the computer animation of Rob drawing a cross, below is a link to a video of Rob actually drawing. The video had to be cut short in order to be uploaded to github.
 
-![Rob Drawing Cross](IMG_6560.MOV)
+![Rob Drawing Cross](https://www.youtube.com/watch?v=Ki1ZRTqjX58)
+
+
