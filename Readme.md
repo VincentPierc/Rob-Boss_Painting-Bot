@@ -72,19 +72,23 @@ The motors are being controlled by the microcontroller sending position signals 
 ### Solenoid Actuating
  In order to provide the power needed for the solenoid to acutate, a [solid state relay](https://www.amazon.com/SSR-100DD-Solid-State-Relay-Module/dp/B07PFDJQLV/ref=asc_df_B07PFDJQLV/?tag=hyprod-20&linkCode=df0&hvadid=344109501737&hvpos=&hvnetw=g&hvrand=4678158795194401447&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9031723&hvtargid=pla-731534345491&psc=1&tag=&ref=&adgrpid=69357499895&hvpone=&hvptwo=&hvadid=344109501737&hvpos=&hvnetw=g&hvrand=4678158795194401447&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9031723&hvtargid=pla-731534345491) was used to convert a 3.3V signal from the microcontroller to 12V, 600mA power supply signal.
 
+
 ## Software Design
 
 ### Software Architecture
-The overarching software archecture uses a cooperative multi-tasking scheduler. Each of the tasks the robot performs was created with the other tasks in consideration. There are three main tasks that the robot performs
+The overarching software archecture uses a cooperative multi-tasking scheduler. Each of the tasks the robot performs was created with the other tasks in consideration. The robot first parses through the file and creates a list with the first element of which being the instruction name and all subsequent elements being the numbers associated with that instruction. The file then runs throught the two processing tasks to interpret the instructions, move the robot, and send the data to the computer.
 
-#### Get Thetas
+#### Draw Wrapper
+The main task of the assignment is the Draw Wrapper task. While the function is named Draw Wrapper, This is because it calles the draw function. The actual purpose of the task is to iterate through the instruction list and process a single instruction each time it is called. It does so through popping the first value of the instruction list and then calling the draw function on the popped instruction list. It is inside of the draw function that the instruction is processed. If the instruction is an IN instruction, the function will place the initial point of (0,0) into the X_Vals and Y_Vals queues to set the initial location of the motor when it runs. If an IN instruction is called after this, it will be deemed the end of the list and the motors will reset to their fully extended position. If the instruction is SP, the color selected by the SP instruction will be set as thevalue for the shared variable curcolor. If a PD or PU function is recieved, the function will first set the.
+
+#### Find Thetas
+When the task is first initialized it generates a list of size 2 that will be used for temporary theta storage. To be more memory efficient, this could have been a float array of size 2. However, the difference between an array of size 2 and a list of size 2 was deemed negligible in this case since it would be reused. After creating the list, the remaining variables representing the initial guesses for the Newton Raphson function and an initial color value.
 
 
-#### Move Motors
 
 
 ### Computer Code
-For the "Bells and Whistles" of our assignment, we opted to go with a computer software implementation. The code, running simultaneously to the code on the Nucleo, generates various graphs to visualize what Rob is supposed to be doing.
+For the "Bells and Whistles" of our assignment, we opted to go with a computer software implementation. The code, running simultaneously to the code on the Nucleo, generates various graphs to visualize what Rob is supposed to be doing.  
 
 ![code can be found here](https://github.com/VincentPierc/Rob-Boss_Painting-Bot/blob/main/Code/Computer_Code.py)
 
